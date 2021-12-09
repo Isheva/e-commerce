@@ -1,0 +1,113 @@
+
+
+<div class="profile preview">
+    <h3 class="p-5">My Account</h3>
+    <div class="profile">
+        <p class="previewAndEdit" (click)="getLoggedUser()">Preview</p>
+        <p class="previewAndEdit" (click)="showEditing()">Edit*</p>
+    </div>
+</div>
+<div *ngIf="show">
+<div>
+    <div class="container container-photo">
+        <div>
+            <img *ngIf="!showEditPhoto" (dblclick)="showEditingPhoto()" src="{{ loggedUser.photoSrc }}" alt="" class="rounded-circle">
+            <img *ngIf="showEditPhoto" [src]="croppedImage" alt="" class="rounded-circle"><br>
+
+            <button *ngIf="showEditPhoto" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#photoModal">
+                Change Photo
+              </button>
+        </div>
+        
+        <div class="name">
+            <h3 *ngIf="!showEditUserame">{{ loggedUser.firstName }}</h3>
+            <h3 *ngIf="!showEditUserame">{{ loggedUser.lastName }}</h3>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div class="profile">
+        <label class="label">Username</label>
+        <label *ngIf="!showEditUserame" (dblclick)="showEditingUsername()">{{ loggedUser.username }}</label>
+        <input *ngIf="showEditUserame" type="text" required name="username" [(ngModel)]="username" id="username" placeholder="Enter your username">
+        
+    </div>
+    <div class="profile">
+            <label class="label">First Name</label>
+            <label *ngIf="!showEditFirstName" (dblclick)="showEditingFirstName()">{{ loggedUser.firstName }}</label>
+            <input *ngIf="showEditFirstName" type="text" required name="firstName" [(ngModel)]="firstName" id="firstName" placeholder="Enter your first name">
+            
+    </div>
+    <div class="profile">
+            <label class="label">Last Name</label>
+            <label *ngIf="!showEditLastName" (dblclick)="showEditingLastName()">{{ loggedUser.lastName }}</label>
+            <input *ngIf="showEditLastName" type="text" required name="lastName" [(ngModel)]="lastName" id="lastName" placeholder="Enter your last name">
+            
+    </div>
+    <div class="profile">
+            <label class="label">Gender</label>
+            <label *ngIf="!showEditGender" (dblclick)="showEditingGender()">{{ loggedUser.gender }}</label>
+            <input *ngIf="showEditGender" type="text" required name="gender" [(ngModel)]="gender" id="gender" placeholder="Select your gender ('M' for male, 'F' for female)">
+            
+    </div>
+    <div class="profile">
+            <label class="label">E-mail</label>
+            <label *ngIf="!showEditEmail" (dblclick)="showEditingEmail()">{{ loggedUser.email }}</label>
+            <input *ngIf="showEditEmail" type="text" required name="email" [(ngModel)]="email" id="email" placeholder="Enter your email address">
+            
+    </div>
+    <div class="profile">
+            <label class="label">GSM</label>
+            <label *ngIf="!showEditGSM" (dblclick)="showEditingGSM()">{{ loggedUser.GSM }}</label>
+            <input  *ngIf="showEditGSM" type="text" required name="GSM" [(ngModel)]="GSM" id="GSM" placeholder="Enter your email GSM">    
+    </div>
+    <div class="profile">
+        <label class="label">Password</label>
+        <div class="pass">
+            <i class="bi bi-eye" (click)="showPassword()" *ngIf="showEye && !showEditPass"></i>
+            <i class="bi bi-eye-slash" (click)="showPassword()" *ngIf="!showEye && !showEditPass" ></i>
+            <label *ngIf="!showEditPass" (dblclick)="showEditingPass()">{{ password }}</label>
+            <input *ngIf="showEditPass" type="password" name="password" [(ngModel)]="passwordChange" id="password" placeholder="Type password">
+        </div>
+    </div>
+</div>
+
+<div class="custom-dropzone" ngx-dropzone [accept]="'image/*'" (change)="onSelectDropzone($event)">
+	<ngx-dropzone-label>Drag and drop photos of clothes you'd like to have for the next season.</ngx-dropzone-label>
+	<ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
+		<ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+	</ngx-dropzone-image-preview>
+</div>
+
+<div class="p-5">
+    <p>*Double click to edit each component separately.</p>
+    <button class="btn btn-block" (click)="onSave()">Save Changes</button>
+</div>
+
+
+<div class="modal fade" id="photoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">User Photo</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <image-cropper
+                *ngIf="showEditPhoto"
+                style="width: 512px; height: 512px; float: left;"
+                [imageChangedEvent]="imageChangedEvent"
+                (imageCropped)="imageCropped($event)"
+            ></image-cropper>
+            <img *ngIf="showEditPhoto" [src]="croppedImage" alt="" class="rounded-circle image-cropped"><br>
+            <input *ngIf="showEditPhoto" type="file" (change)="onSelectFile($event)">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn" data-bs-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

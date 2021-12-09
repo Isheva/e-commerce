@@ -1,0 +1,30 @@
+<div class="product">
+    <header>
+    <div class="prod">
+        <div class="img-container"><img src="{{ newProduct.src }}" class="img" alt=""></div>
+        <div>
+        <h3>{{ newProduct.name }}</h3>
+        
+        </div>
+    </div>
+    <div>
+        <p>{{ newProduct.currency }}{{ newProduct.pricePerOne }}</p>
+    </div>
+    <div>
+        <p class="inc" (click)="onIncrease(newProduct)">+</p><p> {{ newProduct.amount }} </p><p class="inc" (click)="onDecrease(newProduct)">-</p>
+    </div>
+    <div>
+        <p>{{ newProduct.currency }}{{ newProduct.price }}</p>
+    </div>
+    
+    <div>
+        <fa-icon  
+            (click)="onDelete(newProduct)"
+            [ngStyle]="{color: 'black'}" 
+            [icon]="faTimes"
+        ></fa-icon>
+    </div> 
+        
+    </header>
+</div>
+

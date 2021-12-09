@@ -1,0 +1,118 @@
+
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">RAYA DRESS</a>
+    
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a routerLink="/home" class="nav-link">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/selection" class="nav-link">PRODUCTS</a>
+          </li>
+            <li class="nav-item">
+                <a routerLink="/about" class="nav-link">ABOUT</a>
+            </li>
+          <li *ngIf="!isLogin" class="nav-item">
+            <a routerLink="/profile" class="nav-link">MY PROFILE</a>
+          </li>
+          <li *ngIf="isLogin" class="nav-item">
+            <a data-bs-toggle="modal" data-bs-target="#exampleModal" class="nav-link" >LOG IN</a>
+          </li>
+            <li *ngIf="!isLogin" class="nav-item">
+                <a routerLink="/home" class="nav-link" (click)="onLogOut()">LOG OUT</a>                
+            </li>
+            <li class="nav-item">
+              <a class="bi bi-cart3" routerLink="/cart"></a>
+            </li> 
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div *ngIf="!isLogin" class="text-center">{{ loggedUser.firstName }}, it's all about YOU!</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <header>
+          <div>
+          <div>{{showLogin ? "Don't have an account?" : "Already have an account?"}}</div>
+          <app-button 
+              text="{{showLogin ? 'Sign up' : 'Log in'}}"
+              (click)="switchLogin()"
+          ></app-button> 
+          </div>  
+          </header>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form >
+
+          <div *ngIf="showLogin" class="form-control">
+              <label>Username</label>
+              <input type="text" required name="username" [(ngModel)]="loginUsername" id="username" placeholder="Type your username">
+          </div>
+          <div *ngIf="showLogin" class="form-control">
+              <label>Password</label>
+              <input type="password" name="password" [(ngModel)]="loginPassword" id="password" placeholder="Type your password">
+          </div>
+          <div *ngIf="showLogin" class="form-control form-control-check">
+              <label>Remember me</label>
+              <input type="checkbox" name="remember">
+          </div> 
+          
+          <div *ngIf="!showLogin" class="form-control">
+            <label>Username</label>
+            <input type="text" name="username"  [(ngModel)]="username" id="username" placeholder="Type username">
+        </div>
+        <div *ngIf="!showLogin" class="form-control">
+            <label>First Name</label>
+            <input type="text" name="firstName"  [(ngModel)]="firstName" id="firstName" placeholder="Type first name">
+        </div>
+        <div *ngIf="!showLogin" class="form-control">
+            <label>Last Name</label>
+            <input type="text" name="lastName" [(ngModel)]="lastName" id="lastName" placeholder="Type last name">
+        </div>
+        <div *ngIf="!showLogin" class="form-control">
+            <label>Gender</label>
+            <input type="text" name="gender" [(ngModel)]="gender" id="gender" placeholder="Select your gender ('M' for male, 'F' for female)" >
+        </div>
+        <div *ngIf="!showLogin" class="form-control">
+            <label>E-mail</label>
+            <input type="text" name="email" [(ngModel)]="email" id="email" placeholder="Type email">
+        </div>
+        <div *ngIf="!showLogin" class="form-control">
+            <label>GSM</label>
+            <input type="text" name="GSM" [(ngModel)]="GSM" id="GSM" placeholder="Type GSM">
+        </div>
+        <div *ngIf="!showLogin" class="form-control">
+            <label>Password</label>
+            <input type="password" name="password" [(ngModel)]="password" id="password" placeholder="Type password">
+        </div>
+        <div *ngIf="!showLogin" class="form-control">
+            <label>Confirm Password</label>
+            <input type="password" name="passwordCheck" [(ngModel)]="passwordCheck" id="passwordCheck" placeholder="Re-type password">
+        </div>
+        <div *ngIf="!showLogin" class="form-control form-control-check">
+            <label>I agree with the terms and conditions</label>
+            <input type="checkbox" name="agreement" [(ngModel)]="agreement" id="agreement">
+        </div>
+          
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button *ngIf="showLogin" type="button" class="btn" (click)="onLogIn()" data-bs-dismiss="modal">Log In</button>
+        <button *ngIf="!showLogin" type="button" class="btn" data-bs-dismiss="modal" (click)="onSignUp()">Sign Up</button>
+        <button type="button" class="btn" data-bs-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+

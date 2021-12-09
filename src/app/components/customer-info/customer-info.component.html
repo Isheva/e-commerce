@@ -1,0 +1,61 @@
+<h3 class="text-center pt-5 pb-4">PERSONAL INFORMATI0N</h3>
+
+
+    <form>
+      <div class="product enter pt-3 pb-3">
+            <label class="text-center">Do you want to use your saved personal information?</label>
+        
+            <div>
+                <button (click)="getLoggedUser()" class="btn">Use saved</button>
+                <button (click)="setLoggedUser()" class="btn">Use new</button>
+            </div>
+
+      </div>
+    </form>
+
+
+<div *ngIf="showLoggedUser">
+    <div class="product enter">
+        <label class="label">First Name</label>
+        <label>{{ loggedUser.firstName }}</label>
+    </div>
+    <div class="product enter">
+        <label class="label">Last Name</label>
+        <label>{{ loggedUser.lastName }}</label>
+    </div>
+    <div class="product enter">
+        <label class="label">Gender</label>
+        <label>{{ loggedUser.gender }}</label>
+    </div>
+    <div class="product enter">
+        <label class="label">E-mail</label>
+        <label>{{ loggedUser.email }}</label>
+    </div>
+    <div class="product enter">
+        <label class="label">GSM</label>
+        <label>{{ loggedUser.GSM }}</label>
+    </div>
+</div>
+
+<form *ngIf="showNewUser">
+    <div class="product enter">
+        <label class="label">First Name</label>
+        <input type="text" required name="username"  id="username" placeholder="Enter your first name">
+    </div>
+    <div class="product enter">
+        <label class="label">Last Name</label>
+        <input type="text" required name="username"  id="username" placeholder="Enter your last name">
+    </div>
+    <div class="product enter">
+        <label class="label">Gender</label>
+        <input type="text" required name="username"  id="username" placeholder="Select your gender ('M' for male, 'F' for female)">
+    </div>
+    <div class="product enter">
+        <label class="label">E-mail</label>
+        <input type="text" required name="username"  id="username" placeholder="Enter your email address">
+    </div>
+    <div class="product enter">
+        <label class="label">GSM</label>
+        <input type="text" required name="username"  id="username" placeholder="Enter your email GSM">
+    </div>
+</form>

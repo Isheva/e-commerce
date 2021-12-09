@@ -1,0 +1,75 @@
+.profile {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+} 
+
+.pass {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bi {
+    margin-right: 15px;
+    margin-bottom: 3px;
+    cursor: pointer;
+}
+
+.preview {
+    background: #f4f4f4;
+}
+
+.previewAndEdit {
+    cursor: pointer;
+    padding-right: 50px;
+}
+
+img {
+    display: block;
+    max-width: 220px;
+    height: auto;
+    justify-self: center;
+    cursor: pointer;
+}
+
+.container-photo {
+    display: flex;
+    justify-content: space-between;
+    max-width: 80%;
+    padding: 50px;
+}
+
+input{
+    width: 50%;
+}
+
+.name {
+    padding-top: 70px;
+    padding-right: 50%;
+    color: teal;
+}
+
+.label {
+    color: teal;
+}
+
+.saving {
+    cursor: pointer;
+    padding-left: 30px;
+}
+
+image-cropper {
+  overflow: auto;
+  border: 1px solid steelblue;
+  border-radius: 5px;
+}
+
+.image-cropped {
+    align-self: center;
+}
+

@@ -1,0 +1,13 @@
+.inline {
+    display: block;
+}
+
+ .enter {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+} 

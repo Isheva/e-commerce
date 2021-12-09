@@ -1,0 +1,27 @@
+.bi {
+    color: black;
+    padding-left: 10px;
+}
+
+.nav-link {
+    cursor: pointer;
+}
+
+.nav-link-admin {
+    color: hotpink;
+}
+
+.form-control {
+    background-color: white;
+    padding-right: 25px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.excel-table {
+    padding: 100px;
+}

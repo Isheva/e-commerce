@@ -1,0 +1,61 @@
+
+    <ul class="pagination justify-content-center pt-5 pb-5">
+      <li class="page-item"><a class="page-link"  [routerLink] = "['/products']"  fragment="dresses">Dresses</a></li>
+      <li class="page-item"><a class="page-link"  [routerLink] = "['/products']"  fragment="costumes">Costumes</a></li>
+      <li class="page-item"><a class="page-link"  [routerLink] = "['/products']"  fragment="skirts">Skirts</a></li>
+      <li class="page-item"><a class="page-link"  [routerLink] = "['/products']"  fragment="blazers">Blazers</a></li>
+      <li class="page-item"><a class="page-link"  [routerLink] = "['/products']"  fragment="accessories">Accessories</a></li>
+    </ul>
+
+<!-- // -->
+<section id="dresses" name="dresses">
+    <div class="container">
+        <h3 class="text-center pb-5 mb-4 text-black">Dresses</h3>
+    </div>
+</section>
+
+<div class="row p-10">
+        <app-dresses class="col-4 p-10" *ngFor="let dress of dresses" [dress]="dress"></app-dresses>
+</div>
+<!-- // --> 
+<section id="costumes" name="costumes">
+    <div class="container">
+        <h3 class="text-center pb-5 pt-5 mb-4 text-black">Costumes</h3>
+    </div>
+</section> 
+  
+<div class="row p-10">
+    <app-costumes class="col-4 p-10" *ngFor="let costume of costumes" [costume]="costume"></app-costumes>  
+</div>
+<!-- // --> 
+<section id="skirts" name="skirts">
+    <div class="container">
+        <h3 class="text-center pb-5 pt-5 mb-4 text-black">Skirts</h3>
+    </div>
+</section> 
+  
+<div class="row p-10">
+    <app-skirts class="col-4 p-10" *ngFor="let skirt of skirts" [skirt]="skirt"></app-skirts>  
+</div>
+<!-- // --> 
+<section id="blazers" name="blazers">
+    <div class="container">
+        <h3 class="text-center pb-5 pt-5 mb-4 text-black">Blazers</h3>
+    </div>
+</section> 
+  
+<div class="row p-10">
+    <app-blazers class="col-4 p-10" *ngFor="let blazer of blazers" [blazer]="blazer"></app-blazers>  
+</div>
+<!-- // --> 
+<section id="accessories" name="accessories">
+    <div class="container">
+        <h3 class="text-center pb-5 pt-5 mb-4 text-black">Accessories</h3>
+    </div>
+</section> 
+  
+<div class="row p-10">
+    <app-womens-accessories class="col-4 p-10" *ngFor="let accessorie of accessories" [accessorie]="accessorie"></app-womens-accessories>  
+</div>
+
+

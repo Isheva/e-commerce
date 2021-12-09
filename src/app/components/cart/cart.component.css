@@ -1,0 +1,34 @@
+.total {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.product {
+    background: #f4f4f4;
+    margin: 5px;
+    padding-top: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.prod {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: teal;
+    width: 30%;
+}
+
+

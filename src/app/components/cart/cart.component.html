@@ -1,0 +1,60 @@
+
+<h3 class="text-center p-5">YOUR BAG</h3>
+
+<div class="product">
+    <header>
+    <div class="prod">
+        <div>
+        <h3>Product name</h3>
+        
+        </div>
+    </div>
+    <div>
+        <p>Price Per One</p>
+    </div>
+    <div>
+        <p>Quantity</p>
+    </div>
+    <div>
+        <p>Total Price</p>
+    </div>
+    
+    <div>
+        <p>Remove</p>
+    </div> 
+        
+    </header>
+</div>
+
+<app-cart-item 
+    *ngFor="let newProduct of cart" 
+    [newProduct]="newProduct"
+    (onDeleteProduct)="deleteProduct(newProduct)"
+    (onIncreaseAmount)="increaseAmount(newProduct)"
+    (onDecreaseAmount)="decreaseAmount(newProduct)"
+></app-cart-item>
+
+<div class="total" *ngIf="viewTotal">
+    <div>
+        <h3>Total: </h3>
+    </div>
+    <div>
+        <h3>${{ total }}</h3>
+    </div>
+</div>
+
+<div class="text-center pb-4" *ngIf="emptyCart">Oops... Your card is empty!</div>
+
+<div class="p-5">
+    <button class="btn btn-block" (click)="sumTotal()" >Sum</button>
+</div>
+
+
+<app-customer-info>
+    
+</app-customer-info>
+
+<div class="text-center pb-4" *ngIf="emptyCart">Oops... Your card is empty!</div>
+<div class="p-5">
+    <button (click)="checkOut()" class="btn btn-block">Check Out</button>
+</div>
